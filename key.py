@@ -13,13 +13,15 @@ def servo_angle(degree):
     return int((degree + 90) * 9.5 / 180 + 2.5) ##角度をデューティ比に変換
 
 def unlock():
-    servo.ChangeDutyCycle(servo_angle(0)) #0度に回転
+    servo.ChangeDutyCycle(12) #0度に回転
+    time.sleep(1) #3秒待つ 
+    servo.ChangeDutyCycle(2.5) #90度に回転
 
 def lock():
     servo.ChangeDutyCycle(servo_angle(90)) #90度に回転
     time.sleep(3) #3秒待つ 
-    servo.ChangeDutyCycle(servo_angle(0))
 
 unlock() #開ける
+#lock()
 servo.stop()
 GPIO.cleanup()
