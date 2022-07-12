@@ -14,9 +14,7 @@ GPIO.setup(gp_out, GPIO.OUT)
 servo = GPIO.PWM(gp_out, 50)
 
 #パルス出力開始。servo.start(デューティ比[0-100%])
-#とりあえずゼロ指定だとサイクルが生まれないので特に動かないっぽい？
 servo.start(0)
-#time.sleep(1)
 
 def servo_angle(degree):
     return int((degree + 90) * 9.5 / 180 + 2.5)
